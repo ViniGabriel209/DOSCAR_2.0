@@ -188,9 +188,55 @@ dos35 = dos35.sum(axis = 1).to_numpy()
 dos36 = dos36.sum(axis = 1).to_numpy()
 dos37 = dos37.sum(axis = 1).to_numpy()
 
-energiesDF = doscar.loc[1, 'energy'][:3000].reset_index().drop(columns = 'atoms')
-energiesDF = energiesDF.to_numpy()
-energiesDF = [energy[0] for energy in energiesDF]
+# ALSO CHANGE IN camada1.py FILE
+n = 2137   # line index of the minimum desired energy value
+
+deleted = np.zeros(n)
+c = 0
+
+for i in range(0, n):
+    deleted[i] = c
+    c = c + 1
+
+deleted = deleted[:].astype(int)
+
+dos1 = np.delete(dos1, deleted)
+dos2 = np.delete(dos2, deleted)
+dos3 = np.delete(dos3, deleted)
+dos4 = np.delete(dos4, deleted)
+dos5 = np.delete(dos5, deleted)
+dos6 = np.delete(dos6, deleted)
+dos7 = np.delete(dos7, deleted)
+dos8 = np.delete(dos8, deleted)
+dos9 = np.delete(dos9, deleted)
+dos10 = np.delete(dos10, deleted)
+dos11 = np.delete(dos11, deleted)
+dos12 = np.delete(dos12, deleted)
+dos13 = np.delete(dos13, deleted)
+dos14 = np.delete(dos14, deleted)
+dos15 = np.delete(dos15, deleted)
+dos16 = np.delete(dos16, deleted)
+dos17 = np.delete(dos17, deleted)
+dos18 = np.delete(dos18, deleted)
+dos19 = np.delete(dos19, deleted)
+dos20 = np.delete(dos20, deleted)
+dos21 = np.delete(dos21, deleted)
+dos22 = np.delete(dos22, deleted)
+dos23 = np.delete(dos23, deleted)
+dos24 = np.delete(dos24, deleted)
+dos25 = np.delete(dos25, deleted)
+dos26 = np.delete(dos26, deleted)
+dos27 = np.delete(dos27, deleted)
+dos28 = np.delete(dos28, deleted)
+dos29 = np.delete(dos29, deleted)
+dos30 = np.delete(dos30, deleted)
+dos31 = np.delete(dos31, deleted)
+dos32 = np.delete(dos32, deleted)
+dos33 = np.delete(dos33, deleted)
+dos34 = np.delete(dos34, deleted)
+dos35 = np.delete(dos35, deleted)
+dos36 = np.delete(dos36, deleted)
+dos37 = np.delete(dos37, deleted)
 
 dos = np.array([
     dos1,
@@ -231,6 +277,29 @@ dos = np.array([
     dos36,
     dos37
 ])
+
+dos[0:18] = dos[0:18] / 12
+dos[18::2] = dos[18::2] / 4
+dos[19::2] = dos[19::2] / 6
+
+# =========================
+# ENERGY ARRAY MANIPULATION
+# ========================= 
+
+energiesDF = doscar.loc[1, 'energy'][:3000].reset_index().drop(columns = 'atoms')
+energiesDF = energiesDF.to_numpy()
+energiesDF = [energy[0] for energy in energiesDF]
+
+deleted = np.zeros(n)            
+c = 0            
+            
+for i in range(0, n):            
+    deleted[i] = c            
+    c = c + 1            
+            
+deleted = deleted[:].astype(int)            
+        
+energiesDF = np.delete(energiesDF, deleted)
 
 energiesAR = np.array([
     energiesDF,
@@ -279,10 +348,9 @@ for a in range(len(dos1)):
     for i in range(0, 37):
         c[i][a] = i + 1
 
-print(energiesAR.shape)
-print(dos.shape)
-print(c.shape)
-# print(dos)
+# print(energiesAR.shape)
+# print(dos.shape)
+# print(c.shape)
 
 def tridimensionalplot():
 
@@ -313,4 +381,4 @@ def bidimensionalplot():
 
 
 # tridimensionalplot()
-bidimensionalplot()
+# bidimensionalplot()
