@@ -188,7 +188,7 @@ dos35 = dos35.sum(axis = 1).to_numpy()
 dos36 = dos36.sum(axis = 1).to_numpy()
 dos37 = dos37.sum(axis = 1).to_numpy()
 
-# ALSO CHANGE IN camada1.py FILE
+# TRUNCATION OF THE ENERGY AND DOS ARRAYS
 n = 2137   # line index of the minimum desired energy value
 
 deleted = np.zeros(n)
