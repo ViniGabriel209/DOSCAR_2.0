@@ -1,6 +1,6 @@
 '''
 This code is an attempt to determine the band edges through the 2d image of the band alignment.
-Unfortunately, the result was less precise than the traditional way.
+Unfortunately, the result is less precise than that of the traditional way.
 More enhancement is welcome.
 '''
 
